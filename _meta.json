@@ -3,8 +3,8 @@
   "name": "agent-loops",
   "version": "2.0.0",
   "displayName": "Agent Loops | OpenClaw Skill",
-  "description": "Prebuilt multi-agent workflows. Runs sequential and parallel agent pipelines via claude CLI with agent-swarm routing. Use when you need to orchestrate multiple agents for a complex task.",
+  "description": "Multi-agent workflow orchestrator. Use when the user asks to ship a feature, fix a bug, review code, research a topic, refactor code, or publish a skill. Routes each step to the right agent (PM, Dev, Tester, Reviewer, Editor, Researcher, Architect) and chains their outputs. Run: python3 workspace/skills/agent-loops/scripts/run_workflow.py <workflow> \"<input>\" --apply",
   "author": "Austin",
-  "tags": ["workflow", "orchestration", "multi-agent", "pipeline", "openclaw"],
+  "tags": ["workflow", "orchestration", "multi-agent", "pipeline", "ship", "bug-fix", "code-review", "research", "refactor", "openclaw"],
   "platform": "openclaw"
 }

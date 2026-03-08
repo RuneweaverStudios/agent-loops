@@ -1,7 +1,7 @@
 ---
 name: agent-loops
 displayName: Agent Loops | OpenClaw Skill
-description: Prebuilt multi-agent workflows. Runs sequential and parallel agent pipelines via claude CLI with agent-swarm routing. Use when you need to orchestrate multiple agents for a complex task.
+description: Multi-agent workflow orchestrator. Use when the user asks to ship a feature, fix a bug, review code, research a topic, refactor code, or publish a skill. Routes each step to the right agent (PM, Dev, Tester, Reviewer, Editor, Researcher, Architect) and chains their outputs.
 version: 2.0.0
 ---
 
@@ -41,10 +41,18 @@ pip install pyyaml
 
 ## Usage
 
-1. **When to use:** When a task requires multiple agent roles working in sequence or parallel (e.g. "ship this feature", "fix this bug and write tests", "review this code").
-2. **Dry-run first:** Run without `--apply` to see what agents would be spawned and with what tasks.
-3. **Apply:** Add `--apply` to actually spawn agents and capture real outputs.
-4. **Custom workflows:** Create a YAML file in `workflows/` following the schema below.
+**Workflow selection — match the user's intent to a workflow:**
+
+| User says something like... | Workflow | Command |
+|------------------------------|----------|---------|
+| "ship this feature", "build X", "add Y" | `ship_feature` | `python3 workspace/skills/agent-loops/scripts/run_workflow.py ship_feature "<input>" --apply` |
+| "fix this bug", "debug X", "why is Y broken" | `bug_fix` | `python3 workspace/skills/agent-loops/scripts/run_workflow.py bug_fix "<input>" --apply` |
+| "review this code", "audit X", "check for bugs" | `code_review` | `python3 workspace/skills/agent-loops/scripts/run_workflow.py code_review "<input>" --apply` |
+| "research X", "compare A vs B", "write a report on" | `research_report` | `python3 workspace/skills/agent-loops/scripts/run_workflow.py research_report "<input>" --apply` |
+| "refactor X", "clean up Y", "restructure Z" | `refactor` | `python3 workspace/skills/agent-loops/scripts/run_workflow.py refactor "<input>" --apply` |
+| "publish this skill", "push to ClawHub" | `skill_publish` | `python3 workspace/skills/agent-loops/scripts/run_workflow.py skill_publish "<input>" --apply` |
+
+Pass the user's natural language request as `<input>`. The workflow handles scoping, delegation, and output chaining automatically.
 
 ## Examples
 
