@@ -5,7 +5,25 @@
   "displayName": "Agent Loops | OpenClaw Skill",
   "description": "Multi-agent workflow orchestrator that routes tasks to specialized agents (PM, Dev, Tester, Reviewer, Researcher, Architect) and chains their outputs. Supports build, debug, review, research, refactor, and deploy workflows.",
   "author": "Austin",
-  "tags": ["workflow", "orchestration", "multi-agent", "pipeline", "code-review", "research", "deployment", "openclaw", "automation"],
+  "tags": [
+    "workflow",
+    "orchestration",
+    "multi-agent",
+    "pipeline",
+    "code-review",
+    "research",
+    "deployment",
+    "openclaw",
+    "automation"
+  ],
   "main": "scripts/run_workflow.py",
-  "platform": "openclaw"
+  "platform": "openclaw",
+  "requires": {
+    "anyBins": [
+      "python3"
+    ],
+    "pip": [
+      "pyyaml"
+    ]
+  }
 }
