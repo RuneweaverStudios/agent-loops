@@ -28,7 +28,7 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 OPENCLAW_HOME = Path(os.environ.get("OPENCLAW_HOME", str(Path.home() / ".openclaw")))
-ROUTER = OPENCLAW_HOME / "workspace" / "skills" / "agent-swarm" / "scripts" / "router.py"
+ROUTER = Path(os.environ.get("AGENT_SWARM_ROUTER", str(OPENCLAW_HOME / "workspace" / "skills" / "agent-swarm" / "scripts" / "router.py")))
 WORKFLOWS_DIR = Path(__file__).resolve().parent.parent / "workflows"
 RUNS_DIR = OPENCLAW_HOME / "workspace" / "skills" / "agent-loops" / "runs"
 CLAUDE_BIN = shutil.which("claude") or "claude"
