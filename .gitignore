@@ -1,0 +1,7 @@
+# Runtime
+runs/
+__pycache__/
+*.pyc
+
+# OS
+.DS_Store
