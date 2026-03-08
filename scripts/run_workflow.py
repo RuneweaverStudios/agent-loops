@@ -259,9 +259,21 @@ def execute_parallel_steps(steps: List[dict], context: Dict[str, str],
         return results
 
     results = []
-    with ThreadPoolExecutor(max_workers=len(steps)) as executor:
+    # Cap max_workers to avoid resource exhaustion with large parallel groups
+    max_workers = min(len(steps), 10)
+    # Use a semaphore to rate-limit parallel agent spawns
+    import threading
+    spawn_semaphore = threading.Semaphore(max_workers)
+    spawn_delay_sec = 0.5  # Small delay between spawns to avoid API rate limits
+
+    def _rate_limited_step(step, context, model_override, dry_run, timeout, verbose):
+        with spawn_semaphore:
+            time.sleep(spawn_delay_sec)
+            return execute_step(step, context, model_override, dry_run, timeout, verbose)
+
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
         futures = {
-            executor.submit(execute_step, step, context, model_override, dry_run, timeout, verbose): step
+            executor.submit(_rate_limited_step, step, context, model_override, dry_run, timeout, verbose): step
             for step in steps
         }
         for future in as_completed(futures):
