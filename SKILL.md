@@ -2,7 +2,7 @@
 name: agent-loops
 displayName: Agent Loops | OpenClaw Skill
 description: Multi-agent workflow orchestrator. Use when the user asks to build, create, make, ship, develop, or launch any software (apps, webapps, websites, mobile apps, APIs, tools, bots, dashboards, SaaS, MVPs); fix or debug bugs; review or audit code; research topics; refactor code; or publish skills.
-version: 2.0.0
+version: 2.1.0
 ---
 
 # Agent Loops
