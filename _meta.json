@@ -1,0 +1,10 @@
+{
+  "schema": "openclaw.skill.v1",
+  "name": "agent-loops",
+  "version": "2.0.0",
+  "displayName": "Agent Loops | OpenClaw Skill",
+  "description": "Prebuilt multi-agent workflows. Runs sequential and parallel agent pipelines via claude CLI with agent-swarm routing. Use when you need to orchestrate multiple agents for a complex task.",
+  "author": "Austin",
+  "tags": ["workflow", "orchestration", "multi-agent", "pipeline", "openclaw"],
+  "platform": "openclaw"
+}
