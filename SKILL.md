@@ -1,7 +1,7 @@
 ---
 name: agent-loops
 displayName: Agent Loops | OpenClaw Skill
-description: Multi-agent workflow orchestrator. Use when the user asks to ship a feature, fix a bug, review code, research a topic, refactor code, or publish a skill. Routes each step to the right agent (PM, Dev, Tester, Reviewer, Editor, Researcher, Architect) and chains their outputs.
+description: Multi-agent workflow orchestrator. Use when the user asks to build, create, make, ship, develop, or launch any software (apps, webapps, websites, mobile apps, APIs, tools, bots, dashboards, SaaS, MVPs); fix or debug bugs; review or audit code; research topics; refactor code; or publish skills.
 version: 2.0.0
 ---
 
@@ -13,12 +13,12 @@ Prebuilt multi-agent workflows that chain sequential and parallel steps, with re
 
 Agent Loops orchestrates multi-step agent pipelines. Each workflow defines a sequence of steps; each step runs via `claude -p` with a role-specific system prompt and agent-swarm model routing. Outputs chain between steps so each agent builds on the previous one's work.
 
-Use when you need to:
-- Ship a feature end-to-end (scope → implement → document)
-- Diagnose and fix a bug with verification
-- Run parallel code review and security audit
-- Research a topic and produce a polished report
-- Plan and execute a refactoring safely
+Use when the user wants to:
+- Build, create, or ship anything — apps, webapps, websites, mobile apps (iPhone/Android), desktop apps, APIs, CLIs, bots, dashboards, landing pages, SaaS products, MVPs, prototypes, plugins, extensions, microservices
+- Fix, debug, troubleshoot, or diagnose bugs, errors, crashes, or failing tests
+- Review, audit, or inspect code for bugs, security vulnerabilities, or quality issues
+- Research, investigate, compare, or write reports on any topic
+- Refactor, restructure, clean up, optimize, or modernize code
 - Test, review, and publish a skill to ClawHub
 
 ## Installation
@@ -43,16 +43,21 @@ pip install pyyaml
 
 **Workflow selection — match the user's intent to a workflow:**
 
-| User says something like... | Workflow | Command |
-|------------------------------|----------|---------|
-| "ship this feature", "build X", "add Y" | `ship_feature` | `python3 workspace/skills/agent-loops/scripts/run_workflow.py ship_feature "<input>" --apply` |
-| "fix this bug", "debug X", "why is Y broken" | `bug_fix` | `python3 workspace/skills/agent-loops/scripts/run_workflow.py bug_fix "<input>" --apply` |
-| "review this code", "audit X", "check for bugs" | `code_review` | `python3 workspace/skills/agent-loops/scripts/run_workflow.py code_review "<input>" --apply` |
-| "research X", "compare A vs B", "write a report on" | `research_report` | `python3 workspace/skills/agent-loops/scripts/run_workflow.py research_report "<input>" --apply` |
-| "refactor X", "clean up Y", "restructure Z" | `refactor` | `python3 workspace/skills/agent-loops/scripts/run_workflow.py refactor "<input>" --apply` |
-| "publish this skill", "push to ClawHub" | `skill_publish` | `python3 workspace/skills/agent-loops/scripts/run_workflow.py skill_publish "<input>" --apply` |
+| User says something like... | Workflow |
+|------------------------------|----------|
+| "build me an app", "create a webapp", "make a website", "ship this feature", "develop a mobile app", "launch a SaaS", "make an iPhone app", "build an Android app", "create a desktop app", "make a CLI tool", "build an API", "create a bot", "make a dashboard", "build a landing page", "create an MVP", "prototype X", "add dark mode", "implement Y", "build a plugin", "make an extension", "create a service", "spin up a microservice", "scaffold a project" | `ship_feature` |
+| "fix this bug", "debug X", "why is Y broken", "troubleshoot this error", "diagnose the crash", "this isn't working", "something's wrong with X", "getting an error when", "it crashes on", "the build is failing", "tests are broken", "patch this issue", "hotfix for X" | `bug_fix` |
+| "review this code", "audit the codebase", "check for security issues", "inspect this PR", "find bugs in X", "analyze this module", "is this code safe", "check for vulnerabilities", "look over my changes", "do a security review", "scan for issues", "evaluate code quality" | `code_review` |
+| "research X", "compare A vs B", "write a report on", "investigate Y", "explore options for", "what are the best practices for", "study the landscape of", "deep dive into", "summarize the state of", "pros and cons of", "analyze the market for", "write up findings on" | `research_report` |
+| "refactor X", "clean up this code", "restructure Y", "reorganize the codebase", "optimize this module", "modernize the architecture", "reduce tech debt", "simplify this", "extract a service", "decouple X from Y", "improve code structure", "make this more maintainable" | `refactor` |
+| "publish this skill", "push to ClawHub", "release this skill", "deploy to ClawHub", "ship this skill", "get this skill ready for publish" | `skill_publish` |
 
-Pass the user's natural language request as `<input>`. The workflow handles scoping, delegation, and output chaining automatically.
+**Command pattern:**
+```bash
+python3 workspace/skills/agent-loops/scripts/run_workflow.py <workflow> "<user's request>" --apply
+```
+
+Pass the user's natural language request as the input. The workflow handles scoping, delegation, and output chaining automatically.
 
 ## Examples
 

@@ -3,8 +3,8 @@
   "name": "agent-loops",
   "version": "2.0.0",
   "displayName": "Agent Loops | OpenClaw Skill",
-  "description": "Multi-agent workflow orchestrator. Use when the user asks to ship a feature, fix a bug, review code, research a topic, refactor code, or publish a skill. Routes each step to the right agent (PM, Dev, Tester, Reviewer, Editor, Researcher, Architect) and chains their outputs. Run: python3 workspace/skills/agent-loops/scripts/run_workflow.py <workflow> \"<input>\" --apply",
+  "description": "Multi-agent workflow orchestrator. Use when the user asks to: build/create/make/ship/develop/launch an app, webapp, website, iPhone app, Android app, mobile app, desktop app, API, service, tool, CLI, extension, plugin, bot, dashboard, landing page, SaaS, MVP, prototype, or any software project; fix/debug/troubleshoot/diagnose a bug, error, crash, or issue; review/audit/inspect/check/analyze code or security; research/investigate/compare/explore/study a topic or write a report; refactor/restructure/clean up/reorganize/optimize/modernize code; or publish/deploy/release a skill to ClawHub. Routes each step to the right agent (PM, Dev, Tester, Reviewer, Editor, Researcher, Architect) and chains outputs. Run: python3 workspace/skills/agent-loops/scripts/run_workflow.py <workflow> \"<input>\" --apply",
   "author": "Austin",
-  "tags": ["workflow", "orchestration", "multi-agent", "pipeline", "ship", "bug-fix", "code-review", "research", "refactor", "openclaw"],
+  "tags": ["workflow", "orchestration", "multi-agent", "pipeline", "ship", "build", "create", "make", "develop", "launch", "app", "webapp", "website", "mobile", "api", "bug-fix", "debug", "code-review", "audit", "security", "research", "report", "refactor", "optimize", "publish", "deploy", "openclaw"],
   "platform": "openclaw"
 }
